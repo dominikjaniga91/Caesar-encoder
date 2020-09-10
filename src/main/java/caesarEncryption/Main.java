@@ -17,8 +17,7 @@ class Caesar {
             input = in.nextLine();
             if (input.equals("encrypt")) {
                 // ask user for text plain message to encrypt
-                System.out.println("Enter a message to encrypt: ");
-                input = in.nextLine();
+                input = readPlainTextMessageToEncrypt(in);
                 output = "";
                 // encrypt provided message
                 for (int i = 0; i < input.length(); i++) {
@@ -67,6 +66,11 @@ class Caesar {
             }
         } while (true);
         System.out.println("Vale!");
+    }
+
+    private static String readPlainTextMessageToEncrypt(Scanner in) {
+        System.out.println("Enter a message to encrypt: ");
+        return in.nextLine();
     }
 }
 
