@@ -11,14 +11,13 @@ class Caesar {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Decryptor decryptor = new Decryptor();
+        Encryptor encryptor = new Encryptor();
         System.out.println("Ave Caesar! Morituri te salutant!");
-        String input, output;
+        String input;
         do {
             input = askUserForOperation(in);
             if (input.equals("encrypt")) {
-                input = readPlainTextMessageToEncrypt(in);
-                output = encryptMessage(input);
-                printEncryptedMessage(output);
+                encryptor.encrypt();
                 break;
             } else if (input.equals("decrypt")) {
                 decryptor.decrypt();
@@ -35,41 +34,6 @@ class Caesar {
         return in.nextLine();
     }
 
-    private static String readPlainTextMessageToEncrypt(Scanner in) {
-        System.out.println("Enter a message to encrypt: ");
-        return in.nextLine();
-    }
 
-    private static void printEncryptedMessage(String output) {
-        System.out.println("Encrypted message: ");
-        System.out.println(output);
-    }
-
-    private static String encryptMessage(String input) {
-        return input.chars()
-                .map(c -> encryptLetter((char) c))
-                .mapToObj(Character::toString)
-                .collect(Collectors.joining());
-    }
-
-    private static char encryptLetter(char letter) {
-        char character;
-        if ('A' <= letter && letter <= 'Z') {
-            character = shiftRight(letter);
-        } else {
-            character = letter;
-        }
-        return character;
-    }
-
-    private static char shiftRight(char letter) {
-        char character;
-        if (letter + 3 <= 'Z') {
-            character = (char)(letter + 3);
-        } else {
-            character = (char)(letter + 3 - 26);
-        }
-        return character;
-    }
 }
 
