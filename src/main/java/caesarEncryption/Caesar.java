@@ -9,30 +9,34 @@ import java.util.stream.Collectors;
 class Caesar {
 
     Scanner in = new Scanner(System.in);
-    Decryptor decryptor = new Decryptor();
-    Encryptor encryptor = new Encryptor();
 
     public static void main(String[] args) {
-
         System.out.println("Ave Caesar! Morituri te salutant!");
         new Caesar().readAction();
         System.out.println("Vale!");
     }
 
-    private void readAction() {
+    private String readAction() {
         String input;
-        do {
+        while (true) {
             input = askUserForOperation(in);
-            if (input.equals("encrypt")) {
-                encryptor.performAction();
-                break;
-            } else if (input.equals("decrypt")) {
-                decryptor.performAction();
-                break;
+            if ("encrypt".equals(input) || "decrypt".equals(input)) {
+                return input;
             } else {
                 System.out.println("Tertium non datur!");
             }
-        } while (true);
+        }
+    }
+
+    private void run() {
+        String input = readAction();
+        AbstractCoder coder;
+        if ("encrypt".equals(input)) {
+            coder = new Encryptor();
+        } else {
+            coder = new Decryptor();
+        }
+        coder.performAction();
     }
 
     private static String askUserForOperation(Scanner in) {
