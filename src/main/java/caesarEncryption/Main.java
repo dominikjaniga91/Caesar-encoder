@@ -36,6 +36,16 @@ class Caesar {
         return in.nextLine();
     }
 
+    private static String readPlainTextMessageToDecrypt(Scanner in) {
+        System.out.println("Enter a message to decrypt: ");
+        return  in.nextLine();
+    }
+
+    private static String readPlainTextMessageToEncrypt(Scanner in) {
+        System.out.println("Enter a message to encrypt: ");
+        return in.nextLine();
+    }
+
     private static void printDecryptedMessage(String output) {
         System.out.println("Decrypted message: ");
         System.out.println(output);
@@ -98,16 +108,6 @@ class Caesar {
             character = (char)(letter + 3 - 26);
         }
         return character;
-    }
-
-    private static String readPlainTextMessageToDecrypt(Scanner in) {
-        System.out.println("Enter a message to decrypt: ");
-        return  in.nextLine();
-    }
-
-    private static String readPlainTextMessageToEncrypt(Scanner in) {
-        System.out.println("Enter a message to encrypt: ");
-        return in.nextLine();
     }
 }
 
