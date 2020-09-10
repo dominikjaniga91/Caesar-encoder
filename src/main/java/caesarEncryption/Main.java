@@ -20,8 +20,7 @@ class Caesar {
                 input = readPlainTextMessageToEncrypt(in);
                 output = encryptMessage(input);
                 // print encrypted message
-                System.out.println("Encrypted message: ");
-                System.out.println(output);
+                printEncryptedMessage(output);
                 break;
             } else if (input.equals("decrypt")) {
                 // ask user for text plain message to decrypt
@@ -36,6 +35,11 @@ class Caesar {
             }
         } while (true);
         System.out.println("Vale!");
+    }
+
+    private static void printEncryptedMessage(String output) {
+        System.out.println("Encrypted message: ");
+        System.out.println(output);
     }
 
     private static String decryptMessage(String input) {
