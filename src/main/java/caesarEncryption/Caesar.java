@@ -15,11 +15,11 @@ class Caesar {
     }
 
     private String readAction() {
-        String input;
+        String operation;
         while (true) {
-            input = askUserForOperation(in);
-            if ("encrypt".equals(input) || "decrypt".equals(input)) {
-                return input;
+            operation = askUserForOperation(in);
+            if ("encrypt".equals(operation) || "decrypt".equals(operation)) {
+                return operation;
             } else {
                 System.out.println("Tertium non datur!");
             }
@@ -27,9 +27,9 @@ class Caesar {
     }
 
     private void run() {
-        String input = readAction();
+        String operation = readAction();
         AbstractCoder coder;
-        if ("encrypt".equals(input)) {
+        if ("encrypt".equals(operation)) {
             coder = new Encryptor();
         } else {
             coder = new Decryptor();
