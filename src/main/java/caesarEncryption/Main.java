@@ -10,6 +10,7 @@ class Caesar {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        Decryptor decryptor = new Decryptor();
         System.out.println("Ave Caesar! Morituri te salutant!");
         String input, output;
         do {
@@ -20,9 +21,7 @@ class Caesar {
                 printEncryptedMessage(output);
                 break;
             } else if (input.equals("decrypt")) {
-                input = readPlainTextMessageToDecrypt(in);
-                output = decryptMessage(input);
-                printDecryptedMessage(output);
+                decryptor.decrypt();
                 break;
             } else {
                 System.out.println("Tertium non datur!");
@@ -36,51 +35,14 @@ class Caesar {
         return in.nextLine();
     }
 
-    private static String readPlainTextMessageToDecrypt(Scanner in) {
-        System.out.println("Enter a message to decrypt: ");
-        return  in.nextLine();
-    }
-
     private static String readPlainTextMessageToEncrypt(Scanner in) {
         System.out.println("Enter a message to encrypt: ");
         return in.nextLine();
     }
 
-    private static void printDecryptedMessage(String output) {
-        System.out.println("Decrypted message: ");
-        System.out.println(output);
-    }
-
     private static void printEncryptedMessage(String output) {
         System.out.println("Encrypted message: ");
         System.out.println(output);
-    }
-
-    private static String decryptMessage(String input) {
-        return input.chars()
-                .map(c -> decryptLetter((char) c))
-                .mapToObj(Character::toString)
-                .collect(Collectors.joining());
-    }
-
-    private static char decryptLetter(char letter) {
-        char character;
-        if ('A' <= letter && letter <= 'Z') {
-            character = shiftLeft(letter);
-        } else {
-            character = letter;
-        }
-        return character;
-    }
-
-    private static char shiftLeft(char letter) {
-        char character;
-        if (letter - 3 >= 'A') {
-            character = (char)(letter - 3);
-        } else {
-            character = (char)(letter - 3 + 26);
-        }
-        return character;
     }
 
     private static String encryptMessage(String input) {
