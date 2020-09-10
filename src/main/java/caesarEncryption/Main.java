@@ -57,13 +57,19 @@ class Caesar {
     private static char decryptLetter(char letter) {
         char character;
         if ('A' <= letter && letter <= 'Z') {
-            if (letter - 3 >= 'A') {
-                character = (char)(letter - 3);
-            } else {
-                character = (char)(letter - 3 + 26);
-            }
+            character = shiftLeft(letter);
         } else {
             character = letter;
+        }
+        return character;
+    }
+
+    private static char shiftLeft(char letter) {
+        char character;
+        if (letter - 3 >= 'A') {
+            character = (char)(letter - 3);
+        } else {
+            character = (char)(letter - 3 + 26);
         }
         return character;
     }
