@@ -48,11 +48,10 @@ class Caesar {
     }
 
     private static String decryptMessage(String input) {
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            output.append(decryptLetter(input.charAt(i)));
-        }
-        return output.toString();
+        return input.chars()
+                .map(c -> decryptLetter((char) c))
+                .mapToObj(Character::toString)
+                .collect(Collectors.joining());
     }
 
     private static char decryptLetter(char letter) {
