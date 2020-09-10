@@ -13,9 +13,7 @@ class Caesar {
         System.out.println("Ave Caesar! Morituri te salutant!");
         String input, output;
         do {
-            // print a question to user
-            System.out.println("Would you like to encrypt or decrypt a message?");
-            input = in.nextLine();
+            input = askUserForOperation(in);
             if (input.equals("encrypt")) {
                 // ask user for text plain message to encrypt
                 input = readPlainTextMessageToEncrypt(in);
@@ -35,6 +33,11 @@ class Caesar {
             }
         } while (true);
         System.out.println("Vale!");
+    }
+
+    private static String askUserForOperation(Scanner in) {
+        System.out.println("Would you like to encrypt or decrypt a message?");
+        return in.nextLine();
     }
 
     private static void printDecryptedMessage(String output) {
