@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Decryptor implements AbstractCoder {
-    Scanner in = new Scanner(System.in);
 
     public void performAction(Scanner in) {
         String input = readPlainTextMessageToDecrypt(in);

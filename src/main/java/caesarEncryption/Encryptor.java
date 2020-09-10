@@ -5,8 +5,6 @@ import java.util.stream.Collectors;
 
 public class Encryptor implements AbstractCoder {
 
-    Scanner in = new Scanner(System.in);
-
     public void performAction(Scanner in) {
         String input = readPlainTextMessageToEncrypt(in);
         String output = encryptMessage(input);
