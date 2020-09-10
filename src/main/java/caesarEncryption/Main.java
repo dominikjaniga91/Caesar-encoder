@@ -84,13 +84,19 @@ class Caesar {
     private static char encryptLetter(char letter) {
         char character;
         if ('A' <= letter && letter <= 'Z') {
-            if (letter + 3 <= 'Z') {
-                character = (char)(letter + 3);
-            } else {
-                character = (char)(letter + 3 - 26);
-            }
+            character = shiftRight(letter);
         } else {
             character = letter;
+        }
+        return character;
+    }
+
+    private static char shiftRight(char letter) {
+        char character;
+        if (letter + 3 <= 'Z') {
+            character = (char)(letter + 3);
+        } else {
+            character = (char)(letter + 3 - 26);
         }
         return character;
     }
