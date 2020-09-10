@@ -7,7 +7,7 @@ public class Encryptor implements AbstractCoder {
 
     Scanner in = new Scanner(System.in);
 
-    public void performAction() {
+    public void performAction(Scanner in) {
         String input = readPlainTextMessageToEncrypt(in);
         String output = encryptMessage(input);
         printEncryptedMessage(output);

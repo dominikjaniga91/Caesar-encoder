@@ -1,6 +1,8 @@
 package caesarEncryption;
 
+import java.util.Scanner;
+
 public interface AbstractCoder {
 
-    void performAction();
+    void performAction(Scanner in);
 }

@@ -8,12 +8,10 @@ import java.util.stream.Collectors;
  */
 class Caesar {
 
-    Scanner in = new Scanner(System.in);
+    Scanner in;
 
-    public static void main(String[] args) {
-        System.out.println("Ave Caesar! Morituri te salutant!");
-        new Caesar().readAction();
-        System.out.println("Vale!");
+    public Caesar(Scanner in) {
+        this.in = in;
     }
 
     private String readAction() {
@@ -36,7 +34,7 @@ class Caesar {
         } else {
             coder = new Decryptor();
         }
-        coder.performAction();
+        coder.performAction(in);
     }
 
     private static String askUserForOperation(Scanner in) {
@@ -44,6 +42,12 @@ class Caesar {
         return in.nextLine();
     }
 
+    public static void main(String[] args) {
+        System.out.println("Ave Caesar! Morituri te salutant!");
+        Scanner in = new Scanner(System.in);
+        new Caesar(in).run();
+        System.out.println("Vale!");
+    }
 
 }
 
