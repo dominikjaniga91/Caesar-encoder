@@ -3,10 +3,10 @@ package caesarEncryption;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Decryptor {
+public class Decryptor implements AbstractCoder {
     Scanner in = new Scanner(System.in);
 
-    public void decrypt() {
+    public void performAction() {
         String input = readPlainTextMessageToDecrypt(in);
         String output = decryptMessage(input);
         printDecryptedMessage(output);

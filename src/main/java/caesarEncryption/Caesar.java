@@ -17,10 +17,10 @@ class Caesar {
         do {
             input = askUserForOperation(in);
             if (input.equals("encrypt")) {
-                encryptor.encrypt();
+                encryptor.performAction();
                 break;
             } else if (input.equals("decrypt")) {
-                decryptor.decrypt();
+                decryptor.performAction();
                 break;
             } else {
                 System.out.println("Tertium non datur!");
