@@ -8,11 +8,18 @@ import java.util.stream.Collectors;
  */
 class Caesar {
 
+    Scanner in = new Scanner(System.in);
+    Decryptor decryptor = new Decryptor();
+    Encryptor encryptor = new Encryptor();
+
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        Decryptor decryptor = new Decryptor();
-        Encryptor encryptor = new Encryptor();
+
         System.out.println("Ave Caesar! Morituri te salutant!");
+        new Caesar().readAction();
+        System.out.println("Vale!");
+    }
+
+    private void readAction() {
         String input;
         do {
             input = askUserForOperation(in);
@@ -26,7 +33,6 @@ class Caesar {
                 System.out.println("Tertium non datur!");
             }
         } while (true);
-        System.out.println("Vale!");
     }
 
     private static String askUserForOperation(Scanner in) {
