@@ -26,21 +26,7 @@ class Caesar {
             } else if (input.equals("decrypt")) {
                 // ask user for text plain message to decrypt
                 input = readPlainTextMessageToDecrypt(in);
-                output = "";
-                // decrypt provided message
-                for (int i = 0; i < input.length(); i++) {
-                    char letter = input.charAt(i);
-                    // decrypt a single letter
-                    if ('A' <= letter && letter <= 'Z') {
-                        if (letter - 3 >= 'A') {
-                            output = output + (char)(letter - 3);
-                        } else {
-                            output = output + (char)(letter - 3 + 26);
-                        }
-                    } else {
-                        output = output + letter;
-                    }
-                }
+                output = decryptMessage(input);
                 // print decrypted message
                 System.out.println("Decrypted message: ");
                 System.out.println(output);
@@ -50,6 +36,24 @@ class Caesar {
             }
         } while (true);
         System.out.println("Vale!");
+    }
+
+    private static String decryptMessage(String input) {
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            char letter = input.charAt(i);
+            // decrypt a single letter
+            if ('A' <= letter && letter <= 'Z') {
+                if (letter - 3 >= 'A') {
+                    output.append((char)(letter - 3));
+                } else {
+                    output.append((char)(letter - 3 + 26));
+                }
+            } else {
+                output.append(letter);
+            }
+        }
+        return output.toString();
     }
 
     private static String encryptMessage(String input) {
