@@ -40,8 +40,7 @@ class Caesar {
                 break;
             } else if (input.equals("decrypt")) {
                 // ask user for text plain message to decrypt
-                System.out.println("Enter a message to decrypt: ");
-                input = in.nextLine();
+                input = readPlainTextMessageToDecrypt(in);
                 output = "";
                 // decrypt provided message
                 for (int i = 0; i < input.length(); i++) {
@@ -66,6 +65,11 @@ class Caesar {
             }
         } while (true);
         System.out.println("Vale!");
+    }
+
+    private static String readPlainTextMessageToDecrypt(Scanner in) {
+        System.out.println("Enter a message to decrypt: ");
+        return  in.nextLine();
     }
 
     private static String readPlainTextMessageToEncrypt(Scanner in) {
