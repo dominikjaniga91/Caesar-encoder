@@ -2,6 +2,7 @@ package caesarEncryption;
 
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import static java.lang.System.out;
 
 public class Decryptor implements AbstractCoder {
 
@@ -40,12 +41,12 @@ public class Decryptor implements AbstractCoder {
     }
 
     private String readPlainTextMessageToDecrypt(Scanner in) {
-        System.out.println("Enter a message to decrypt: ");
+        out.println("Enter a message to decrypt: ");
         return  in.nextLine();
     }
 
     private void printDecryptedMessage(String output) {
-        System.out.println("Decrypted message: ");
-        System.out.println(output);
+        out.println("Decrypted message: ");
+        out.println(output);
     }
 }
