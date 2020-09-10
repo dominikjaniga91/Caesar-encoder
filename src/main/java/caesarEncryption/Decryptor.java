@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class Decryptor implements AbstractCoder {
 
+    @Override
     public void performAction(Scanner in) {
         String input = readPlainTextMessageToDecrypt(in);
         String output = decryptMessage(input);
