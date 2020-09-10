@@ -15,17 +15,13 @@ class Caesar {
         do {
             input = askUserForOperation(in);
             if (input.equals("encrypt")) {
-                // ask user for text plain message to encrypt
                 input = readPlainTextMessageToEncrypt(in);
                 output = encryptMessage(input);
-                // print encrypted message
                 printEncryptedMessage(output);
                 break;
             } else if (input.equals("decrypt")) {
-                // ask user for text plain message to decrypt
                 input = readPlainTextMessageToDecrypt(in);
                 output = decryptMessage(input);
-                // print decrypted message
                 printDecryptedMessage(output);
                 break;
             } else {
