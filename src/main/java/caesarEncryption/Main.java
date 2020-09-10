@@ -1,6 +1,7 @@
 package caesarEncryption;
 
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * A program for encoding and decoding of text messages using Caesar cipher.
@@ -69,11 +70,10 @@ class Caesar {
     }
 
     private static String encryptMessage(String input) {
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            output.append(encryptLetter(input.charAt(i)));
-        }
-        return output.toString();
+        return input.chars()
+                .map(c -> encryptLetter((char) c))
+                .mapToObj(Character::toString)
+                .collect(Collectors.joining());
     }
 
     private static char encryptLetter(char letter) {
