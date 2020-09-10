@@ -21,7 +21,7 @@ public class Decryptor implements AbstractCoder {
 
     private char decryptLetter(char letter) {
         char character;
-        if ('A' <= letter && letter <= 'Z') {
+        if (isAlphabeticalLetter(letter)) {
             character = shiftLeft(letter);
         } else {
             character = letter;

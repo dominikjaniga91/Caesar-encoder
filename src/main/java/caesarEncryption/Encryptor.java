@@ -31,7 +31,7 @@ public class Encryptor implements AbstractCoder {
 
     private char encryptLetter(char letter) {
         char character;
-        if ('A' <= letter && letter <= 'Z') {
+        if (isAlphabeticalLetter(letter)) {
             character = shiftRight(letter);
         } else {
             character = letter;
