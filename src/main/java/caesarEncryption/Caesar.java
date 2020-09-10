@@ -1,14 +1,13 @@
 package caesarEncryption;
 
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 /**
  * A program for encoding and decoding of text messages using Caesar cipher.
  */
 class Caesar {
 
-    Scanner in;
+    private final Scanner in;
 
     public Caesar(Scanner in) {
         this.in = in;
