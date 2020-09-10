@@ -27,14 +27,18 @@ class Caesar {
                 input = readPlainTextMessageToDecrypt(in);
                 output = decryptMessage(input);
                 // print decrypted message
-                System.out.println("Decrypted message: ");
-                System.out.println(output);
+                printDecryptedMessage(output);
                 break;
             } else {
                 System.out.println("Tertium non datur!");
             }
         } while (true);
         System.out.println("Vale!");
+    }
+
+    private static void printDecryptedMessage(String output) {
+        System.out.println("Decrypted message: ");
+        System.out.println(output);
     }
 
     private static void printEncryptedMessage(String output) {
